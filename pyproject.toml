@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "pttapp-apitesting"
+version = "0.1.0"
+description = ""
+authors = ["Jijin <jijin.varghese@edstem.com>"]
+readme = "README.md"
+packages = [{include = "pttapp_apitesting"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pytest = "^7.3.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
