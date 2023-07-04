@@ -1,10 +1,10 @@
 import login
 import requests
-import pytest
 
 access_token = login.data["authenticationResult"]["AccessToken"]
 
-def test_claim_details_api():
+
+def test_trust_balance_api():
     url = 'https://dev-api.pttapp.com/api/reports/trust-balance?client=635132a4dc29b4bad9e74d90&currency=GBP'
     headers = {
         "Authorization": f"Bearer {access_token}"
@@ -17,10 +17,10 @@ def test_claim_details_api():
     assert "content" in response.json()
     results = response.json()["content"]
     assert len(results) > 0
-    client_ID = results[0]["cId"]
-    assert client_ID == "JV01"
+    client_id = results[0]["cId"]
+    assert client_id == "JV01"
 
-    if client_ID == "JV01":
+    if client_id == "JV01":
         print("Trust Balance Report Listed Successfully")
     else:
         print("Something went wrong")
@@ -42,4 +42,5 @@ def test_claim_details_api():
     except AssertionError:
         print("Export API test failed. Trust Balance Reports generation initiation unsuccessful.")
 
-test_claim_details_api()
+
+test_trust_balance_api()
